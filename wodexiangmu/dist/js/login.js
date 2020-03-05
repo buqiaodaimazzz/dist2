@@ -1,1 +1,0 @@
-"use strict";window.onload=function(){$("#login_btn").click(function(){$("#login").validate({rules:{uname:"required",upass:{required:!0,minlength:4,maxlength:12}},messages:{uname:"请输入用户名!",upass:{required:"请输入密码!",minlength:"最少要输入 4 个字符!"}},submitHandler1:function(n){$.post("../php/login.php",$(n).serialize(),function(n){console.log(n)},"json")}})})};
