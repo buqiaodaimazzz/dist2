@@ -1,0 +1,1 @@
+"use strict";$(".con_right .pagi").pagination({pageCount:50,current:1,jump:!0,coping:!0,homePage:"首页",endPage:"末页",prevContent:"上页",nextContent:"下页",callback:function(n){console.log(n.getCurrent())}});

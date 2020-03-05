@@ -1,91 +1,86 @@
 
-window.onload = function () {
+ // 1. 获取 localStorage 里面的数据
+ const info = JSON.parse(localStorage.getItem('goodsInfo'))
 
-     // 根据url的参数来从数据库取出对应的商品
-     var parmas = location.search.slice(1); //id=1
-     // 怎样把id=1 只要 1
-    //  console.log(parmas);
-     var id = parmas.split('=')[1] * 1
-    //  console.log(id);
-     // filter() 根据条件过滤出数据 以数组的形式返回
-     var res = list_data.filter(function (item, index) {
-         return item.id == id;
-     })[0];
-     console.log(res);
-     // [0]把对象从数组中取出
-     var con = document.querySelector('#con');
-     console.log(con);
+ console.log(info)
+ // 2. 判断数据是否存在
+ if (!info) {
+   // 能执行表示 !info 是一个 true
+   // 表示 info 是一个 false
+   // 表示数据不存在
+   alert('您要查看的数据不存在')
+   // 跳转回列表页面
+   window.location.href = './list.html'
+ }
 
-     // 根据过滤出来的数据 渲染到页面中
+ // 3. 渲染页面
+ bindHtml()
+ function bindHtml() {
+   $('.left img').attr('src', info.list_img)
+   $('.right h3').text(info.list_title)
+   $('.right .pri').text('￥' + info.list_price)
+   $('.right .collect').text(info.list_collect)
+ }
 
-    con.innerHTML=`
-    <div class="left">
-        <div class="box">
-            <div class="show">
-                <img src="${res.list_img}" alt="">
-                <div class="mask"></div>
-            </div>
-            <div class="list">
-                <p class="active" bigImg="${res.list_img}" img="${res.list_img}">
-                    <img src="${res.list_img}" alt="">
-                </p>
-                <p bigImg="../images/hot2.png" img="../images/hot2.png">
-                    <img src="../images/hot2.png" alt="">
-                </p>
-            </div>
-            <div class="enlarge"></div>
-        </div>
-    </div>
+ // console.log(info)
 
-    <div class="right">
-             <h3>${res.list_title}</h3>
-            <p class="coupons">领券满158减10；满238减20；满399减50，满额下单更优惠哦！</p>
-            <ul class="shop clearfix">
-                <li>
-                    <p class="price">
-                        <span>价格</span><em class="pri">￥${res.list_price}</em> <i class="notice">降价通知</i>
-                    </p>
-                    <p class="coup">
-                        <span>优惠卷</span><em>满158减10</em><em>满238减20</em><em>满399减50</em>
-                    </p>
-                </li>
-                <li>
-                    <p>累计收藏</p>
-                    <span>${res.list_pay}</span>
-                </li>
-            </ul>
-            <p class="delivery">
-                <span>配送至</span>
-                <select name="" id="">
-                    <option value="广州">广州</option>
-                    <option value="东莞">东莞</option>
-                    <option value="上海">上海</option>
-                    <option value="北京">北京</option>
-                </select>
-                <em>支持</em>
-                <i>送运费保险</i>
-                <u>|</u>
-                <i>服饰材质保障</i>
-            </p>
-            <p class="freight">店铺单笔订单不满99元,在线支付运费8元 </p>
-            <p class="store">由<span>童泰母婴官方旗舰店</span>从 河北邢台市发货, 并提供售后服务</p>
-            <ul class="type">
-                <li class="color clearfix">
-                    <span>选择颜色</span><em>蓝色</em><em>粉色</em><em>橘色</em>
-                </li>
-                <li class="size clearfix">
-                    <span>选择尺码</span><em>59cm</em><em>66cm</em><em>73cm</em><em>80cm</em>
-                </li>
-                <li class="pay clearfix">
-                    <span>分期付款</span><em>不分期</em><em>x3期</em><em>x6期</em><em>x12期</em>
-                </li>
-            </ul>
-            <p>
-                <button class="detail_btn">加入购物车</button>
-            </p>
-        </div>
-    `
+ // 4. 点击添加购物车
+ // 4-1. 添加点击事件
+ $('.addCart').click(() => {
+   // console.log('我要添加购物车了')
 
+   // 4-2. 判断是否登录
+
+   // 4-3. 加入到购物车数组里面
+   //    先拿到 localStorage 里面的那个数组信息
+   //    如果原先没有数据, 那么我就用一个空数组来代替
+   //    如果有数据, 就用我们的数据
+   const cartList = JSON.parse(localStorage.getItem('cartList')) || []
+
+   // 象数组里面把本条数据添加进去
+   // 4-4. 判断有没有这个数据
+   //      每一个数据都有一个自己的 id
+   //      只要看数组里面有没有 id 一样的数据, 就知道有没有这个数据了
+   //      数组常用方法有一个叫做 some 的方法
+   //      返回值:
+   //        true: 表示数组里面有这个信息
+   //        false: 表示数组里面没有这个信息
+   let exits = cartList.some(item => {
+     // 数组里面每一个的 id === 本页面的这条数据的 id
+     return item.id === info.id
+   })
+
+   // console.log(exits)
+   if (exits) {
+     // 表示有这个信息了, 我们要让 number ++
+     // console.log('已经存在 number ++')
+     // 找到这个信息给他 number ++
+     let data = null
+     for (let i = 0; i < cartList.length; i++) {
+       if (cartList[i].id === info.id) {
+         data = cartList[i]
+         break
+       }
+     }
+     // data 就是我找到的这个信息
+     data.number++
+
+     // 4-5. 数量添加的时候, 小计价格要改变
+     data.xiaoji = data.number * data.price // 数量 * 单价
+   } else {
+     // 表示没有这个信息, 直接 push 就可以了
+     // push 之前, 象里面添加一个 number 信息为 1
+     info.number = 1
+
+     // 4-5. 多添加一些信息
+     info.xiaoji = info.price // 因为默认是第一个, 小计就是单价
+     info.isSelect = false // 默认不选中
+     cartList.push(info)
+   }
+
+   // 在存储到 localStorage 里面
+   localStorage.setItem('cartList', JSON.stringify(cartList))
+ })
 
 
 
@@ -221,6 +216,6 @@ window.onload = function () {
 //     img:['','','']
 // }
 // 操作对象
-new Enlarge('.box')
+new Enlarge('.left')
 }
 

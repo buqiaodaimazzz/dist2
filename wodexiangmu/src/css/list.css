@@ -127,7 +127,14 @@ nav .nav_list li:first-child a{
 }
 
 
-
+.pagi {
+    width: 940px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
 
