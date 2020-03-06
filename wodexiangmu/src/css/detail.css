@@ -1,0 +1,219 @@
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#con{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#con .left{
+   float: left;
+}
+.box {
+    width: 450px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.box>.show {
+    width: 450px;
+    height: 450px;
+    border: 1px solid #333;
+    position: relative;
+}
+
+.box>.show>.mask {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    opacity: .4;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    display: none;
+}
+
+.box>.list {
+    width: 100%;
+    flex: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.box>.list>p {
+    width: 54px;
+    height: 54px;
+    border: 1px solid #333;
+    margin-right: 10px;
+}
+
+.box>.list>p.active {
+    border-color: red;
+}
+
+.box>.enlarge {
+    /* 容器 与背景图的比例为 1 ：2 */
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 101%;
+    /* background: url(../images/hot1.png) no-repeat; */
+    background-size: 800px 800px;
+    background-position: 0 0;
+    display: none;
+}
+
+
+#con .right{
+    width: 590px;
+    margin: 60px 0;
+    float: left;
+}
+#con .right h3{
+    font-size: 22px;
+    font-weight: bold;
+}
+#con .right .coupons{
+    font-size: 14px;
+    color: red;
+    padding: 12px 0 8px;
+}
+#con .right .shop{
+    box-sizing: border-box;
+    padding: 14px;
+    background: rgb(202, 202, 202);
+    color: #666666;
+    margin-bottom: 10px;
+}
+#con .right .shop li{
+   float: left;
+}
+#con .right .shop li:last-child{
+    float: right;
+    padding-left: 8px;
+    border-left: 1px solid #999;
+    text-align: center;
+}
+#con .right .shop li:last-child > span{
+   color: teal;
+}
+#con .right .shop .price{
+    margin-bottom: 14px;
+}
+#con .right .shop .pri{
+    color: red;
+    margin: 0 14px 0;
+    font-size: 18px;
+}
+#con .right .shop .notice{
+    color: teal;
+}
+#con .right .shop .coup >em{
+    display: block;
+    width: 70px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: red;
+    background: #ffdedf;
+    border-top:1px solid red;
+    border-bottom:1px solid red;
+    border-left: salmon 1px dashed;
+    border-right: salmon 1px dashed;
+    float: right;
+    margin-left: 14px;
+    cursor: pointer;
+}
+#con .right .delivery{
+    padding-bottom: 8px;
+}
+#con .right .delivery span:first-child{
+    color: #666666;
+}
+#con .right .delivery select{
+   border: 1px solid #666666;
+   margin: 0 14px;
+}
+#con .right .delivery >em{
+    color: #333333;
+    margin-right: 14px;
+}
+#con .right .delivery >u{
+    margin:0 10px;
+}
+#con .right .delivery >i{
+    color: teal;
+}
+#con .right .freight,
+#con .right .store{
+    padding-left: 60px;
+    line-height: 26px;
+}
+#con .right .store >span{
+    color: red;
+    padding: 0 10px;
+}
+#con .right .type{
+    color: #666666;
+    padding: 14px 0 8px;
+    border-top: 1px dotted #999;
+    border-bottom: 1px solid #f3f3f3;
+}
+#con .right .type li{
+    height: 38px;
+    line-height: 38px;
+    margin-bottom: 12px;
+}
+#con .right .type span{
+    color: #888888;
+    float: left;
+}
+#con .right .type .color >em{
+    display: block;
+    width: 80px;
+    height: 34px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    float: left;
+    margin-left: 14px;
+    cursor: pointer;
+}
+#con .right .type .size >em,
+#con .right .type .pay >em{
+    display: block;
+    width: 56px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    float: left;
+    margin-left: 14px;
+    cursor: pointer;
+}
+.detail_btn,
+.cart_btn{
+    height: 46px;
+    line-height: 46px;
+    padding: 0 26px;
+    font-size: 18px;
+    background: #df3033;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin: 10px 0;
+}
+

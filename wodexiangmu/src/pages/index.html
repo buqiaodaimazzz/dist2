@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>网站首页</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../lib/swiper/css/swiper.min.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../font/iconfont.css">
+  <script src="../js/index.js"></script>
+  <script src="../js/data.js"></script>
+</head>
+<body>
+<header>
+  <div class="top clearfix">
+    <p>
+      <i class="iconfont icon-shouye"></i>
+      <a href="index.html">首页</a>
+    </p>
+    <p>
+      <a href="./login.html">登录</a>
+      <a href="#">购物车</a>
+    </p>
+  </div>
+</header>
+
+
+<nav>
+  <div class="nav clearfix">
+    <ul class="nav_search clearfix">
+      <h1><a href="#"><img src="../images/logo.png" alt=""></a></h1>
+      <li class="search">
+        <p>
+          <span>请输入需要的商品</span>
+          <i class="iconfont icon-sousuo"></i>
+        </p>
+        
+      </li>
+    </ul>
+    <ul class="nav_list clearfix">
+      <h3>全部分类</h3>
+      <li><a href="list.html">所有商品</a></li>
+      <li><a href="#">今日团购</a></li>
+      <li><a href="#">母婴资讯</a></li>
+      <li><a href="#">关于我们</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<section id="banner">
+  <div class="banner">
+      <ul class="con">
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="food">
+          <span><a href="#">奶粉</a></span>
+          <span><a href="#">捕食</a></span>
+          <span><a href="#">营养品</a></span>
+          <span><a href="#">捕食</a></span>
+          <span><a href="#">营养品</a></span>
+        </div>
+      </li>
+     
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="pants"></div>
+      </li>
+     
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="wash"></div>
+      </li>
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="toy"></div>
+      </li>
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="seat"></div>
+      </li>
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="shoe"></div>
+      </li>
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="pic"></div>
+      </li>
+      <li class="con_item">
+        <h4>奶粉辅食</h4>
+        <p>
+          <a href="#">奶粉</a>
+          <a href="#">捕食</a>
+          <a href="#">营养品</a>
+        </p>
+        <i>&gt;</i>
+        <div class="mother"></div>
+      </li>
+    </ul> 
+  </div>
+</section>
+
+
+<section id="snap">
+  <div class="snap">
+    <p><img src="../images/s_img1.jpg" alt=""></p>
+    <div class="swiper">
+       <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <!-- <div class="swiper-slide">
+        <ul>
+          <li><img src="../images/s_img3.jpg" alt=""></li>
+          <h5>宝宝五彩袜棉质舒服</h5>
+          <h6>
+            <span> ￥199.00</span><s>￥299.00</s>
+          </h6>
+        </ul>
+      </div> -->
+      <script>
+          var con = document.querySelector('.swiper-wrapper')
+    // console.log(con)
+    var list = snap_data.map(function(item,index){
+        return `
+        <div class="swiper-slide">
+        <ul>
+        <li><img src="${item.pic}" alt=""></li>
+        <h5>${item.type}</h5>
+        <h6>
+            <span>${item.nowprice}</span><s>${item.oldprice}</s>
+        </h6>
+        </ul>
+        </div>
+                `
+        }).join("");
+        con.innerHTML = list; 
+      </script>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="../lib/swiper/js/swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+	  centeredSlides: true,
+	  loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+  </div>
+</section>
+
+
+<section id="hot">
+  <div class="hot clearfix">
+    <ul class="hot_left">
+      <h2>热门推荐</h2>
+      <li><img src="../images/hot1.png" alt=""></li>
+      <p></p>
+      <span><img src="../images/hot2.png" alt=""></span> 
+    </ul>
+    <ul class="hot_middle">
+      <li><img src="../images/hot5.jpg" alt=""></li>
+      <li class="clearfix">
+        <img src="../images/hot6.jpg" alt="">
+        <img src="../images/hot7.jpg" alt="">
+      </li>
+    </ul>
+    <ul class="hot_right">
+      <li>
+         <img src="../images/hot8.jpg" alt="">
+      </li>
+      <li>
+        <img src="../images/hot9.jpg" alt="">
+     </li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="floor">
+  <div class="floor">
+    <ul class="floor_first">
+      <li class="left">
+        <h2>1F</h2>
+        <i class="iconfont icon-gouwuche"></i>
+        <h3>宝宝服饰</h3>
+      </li>
+      <li class="right">
+        <p>
+          <img src="../images/img12.jpg" alt="">
+        </p>
+       <aside class="floor1_img">
+           <!-- <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span> 
+       -->
+        </aside>
+        
+      </li>
+    </ul>
+    <ul class="floor_second">
+      <li class="left">
+        <h2>2F</h2>
+        <i class="iconfont icon-gouwuche"></i>
+        <h3>宝宝辅食</h3>
+      </li>
+      <li class="right">
+        <p>
+          <img src="../images/img12.jpg" alt="">
+        </p>
+        <aside class="floor2_img">
+          <!-- <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span> -->
+        </aside>
+      </li>
+    </ul>
+    <ul class="floor_third">
+      <li class="left">
+        <h2>3F</h2>
+        <i class="iconfont icon-gouwuche"></i>
+        <h3>宝宝用品</h3>
+      </li>
+      <li class="right">
+        <p>
+          <img src="../images/img12.jpg" alt="">
+        </p>
+        <aside class="floor3_img">
+          <!-- <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span>
+          <span><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></span> -->
+        </aside>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="recommend">
+  <div class="recommend">
+    <h2>更多推荐</h2>
+    <ul class="recommend_con clearfix">
+      <!-- <li>
+        <p><img src="http://www.ujchn.com/res/static/img/s_img7.jpg" alt=""></p>
+        <p class="title">title</p>
+        <span>￥199</span>
+      </li> -->
+    </ul>
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot">
+    <ul class="about clearfix">
+      <li class="clearfix">
+        <i class="iconfont icon-anquanzhongxin"></i> <span>7天无理由退换货</span>
+      </li>
+      <li class="clearfix">
+        <i class="iconfont icon-che"></i> <span>满99元全场免邮</span>
+      </li>
+      <li class="clearfix">
+        <i class="iconfont icon-zuanshi"></i> <span>100%质量保证</span>
+      </li>
+    </ul>
+    <ul class="copyright">
+      <li class="lists clearfix">
+        <span>关于我们</span>
+        <em>|</em>
+        <span>帮助中心</span>
+        <em>|</em>
+        <span>售后服务</span>
+        <em>|</em>
+        <span>母婴资讯</span>
+        <em>|</em>
+        <span>关于货源</span>
+      </li>
+      <li>重庆悠驾实业有限公司所有</li>
+      <li>渝ICP备16006952号-1</li>
+    </ul>
+  </div>
+</footer>
+
+<button class="btn">返回顶部</button>
+<script src="../lib/jquery/dist/jquery.min.js"></script>
+<script>
+  
+  $(window).scroll(() => {
+   
+    if ($(window).scrollTop() >= 300) {
+     
+      $('.btn').fadeIn()
+    } else {
+     
+      $('.btn').fadeOut()
+    }
+  })
+
+ 
+  $('.btn').click(() => {
+    
+    $('html').animate({
+      scrollTop: 0
+    }, 2500)
+
+  })
+</script>
+</body>
+</html>
