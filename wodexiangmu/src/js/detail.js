@@ -125,7 +125,7 @@ function bindHtml() {
     
 
 
-    }
+}
 
 
 // 4. 点击添加购物车
@@ -200,7 +200,7 @@ function bindHtml() {
     constructor(ele) {
         this.ele = document.querySelector(ele);
         this.init();
-        this.setStyle();
+        
     }
     init() {
         // 需要获取什么元素
@@ -210,7 +210,7 @@ function bindHtml() {
 
         // 鼠标移入show盒子，显示mask 和enlarge
         this.show.onmouseover = () => {
-            this.mask.style.display = this.enlarge.style.display = 'block'
+            this.mask.style.display = this.enlarge.style.display= 'block';
             this.setStyle();
             this.move()
         }

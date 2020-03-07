@@ -32,11 +32,17 @@ $('#register').click(function(){
         $.post('../php/register.php', $(form).serialize(), res => {
           
           alert(res.mess)
-         
+          var a = res.mess;
+          aa(a)
         },'json')
         
         
       }
     })
+    function aa(a){
+      if(a =='注册成功'){
+        window.location.href='./login.html';
+      }
+  }
   
   })

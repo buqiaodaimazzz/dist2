@@ -69,6 +69,7 @@ img {
     position: absolute;
     top: 0;
     left: 101%;
+    /* background: #df3033; */
     /* background: url(../images/hot1.png) no-repeat; */
     background-size: 800px 800px;
     background-position: 0 0;

@@ -189,19 +189,19 @@
         $('.goods').on('click', '.del', function () {
           // 拿到自己身上的 id
           const id = $(this).data('id')
-          const cartList = JSON.parse(localStorage.getItem('cartList'))
-          // console.log(id)
-          // console.log(cartList)
          
           // '把数组中 id 对应的数去掉, 从新渲染页面, 从新存储到 lcoalStorage'
-          cartList.forEach(function(item,index){
-            
+          cartList.forEach(function(item,index,arr){
+          
+            // 找到对用商品的索引
+          let indexa = cartList.findIndex( item => item.id == id);
+          // console.log(indexa)
             if(item.id==id){
-              cartList.splice(0, 1)
+              cartList.splice(indexa, 1)
             }
-            
-            
+
           })
+          
           // 从新渲染页面
             bindHtml()
   
